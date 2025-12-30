@@ -9,7 +9,6 @@ dotenv.config();
 
 const connectDB = async () => {
   await mongoose.connect(process.env.MONGO_URI);
-  console.log("DB connected for Phase 2");
 };
 
 const fetchTopLinks = async (query) => {
@@ -55,10 +54,12 @@ const mockRewriteArticle = (original, refContents, refLinks) => {
     updated += content + "\n\n";
   });
 
+  if (refLinks.length > 0) {
   updated += `## References\n`;
-  refLinks.forEach((link, i) => {
-    updated += `${i + 1}. ${link}\n`;
+  refLinks.forEach((link, index) => {
+    updated += `${index + 1}. ${link}\n`;
   });
+}
 
   return updated;
 };
@@ -77,7 +78,11 @@ const runPhase2 = async () => {
 
       for (let link of links) {
         const content = await scrapeContent(link);
-        refContents.push(content);
+        if (content && content.length > 100) {
+            refContents.push(content);
+        } else {
+             refContents.push("Content could not be extracted, but the source was referenced.");
+        }
       }
 
       const updatedContent = mockRewriteArticle(
@@ -95,7 +100,6 @@ const runPhase2 = async () => {
       console.log("Updated article:", art.title);
     }
 
-    console.log("\nPhase 2 completed successfully");
     process.exit();
 
   } catch (error) {

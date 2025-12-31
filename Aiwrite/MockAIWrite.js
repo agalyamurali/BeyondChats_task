@@ -49,20 +49,27 @@ const mockRewriteArticle = (original, refContents, refLinks) => {
   updated += original + "\n\n";
 
   updated += `## Insights from Top Ranking Articles\n\n`;
-  refContents.forEach((content, i) => {
-    updated += `### Reference Article ${i + 1}\n`;
-    updated += content + "\n\n";
-  });
+  if (refContents.length === 0) {
+    updated += "Insights derived from general industry best practices.\n\n";
+  } else {
+    refContents.forEach((content, i) => {
+      updated += `### Reference Article ${i + 1}\n`;
+      updated += content + "\n\n";
+    });
+  }
 
-  if (refLinks.length > 0) {
   updated += `## References\n`;
-  refLinks.forEach((link, index) => {
-    updated += `${index + 1}. ${link}\n`;
-  });
-}
+  if (refLinks.length === 0) {
+    updated += "No external references available (mock AI mode).\n";
+  } else {
+    refLinks.forEach((link, index) => {
+      updated += `${index + 1}. ${link}\n`;
+    });
+  }
 
   return updated;
 };
+
 
 const runPhase2 = async () => {
   try {
@@ -92,10 +99,10 @@ const runPhase2 = async () => {
       );
 
       await Article.findByIdAndUpdate(
-        art._id,
-        { content: updatedContent },
-        { new: true }
-      );
+       art._id,
+       { content: updatedContent },
+       { new: true }
+);
 
       console.log("Updated article:", art.title);
     }

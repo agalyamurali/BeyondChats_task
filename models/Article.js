@@ -1,25 +1,12 @@
 import mongoose from "mongoose";
 
-const articleSchema = new mongoose.Schema(
-  {
-    title: {
-      type: String,
-      required: true,
-    },
+const articleSchema = new mongoose.Schema({
+  title: String,
+  url: String,
+  originalContent: String,
+  content: String,        
+});
 
-    content: {
-      type: String,
-      required: true,
-    },
-
-    originalUrl: {
-      type: String,
-    },
-  },
-  {
-    timestamps: true,
-  }
-);
 
 const Article = mongoose.model("Article", articleSchema);
 

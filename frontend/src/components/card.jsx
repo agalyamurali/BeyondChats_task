@@ -45,11 +45,19 @@ function Card({ article }) {
 
       
       {isOpen && (
-        <>
-          <hr style={styles.divider} />
-          <div>{formatContent(article.content)}</div>
-        </>
-      )}
+  <>
+    <hr style={styles.divider} />
+
+    <h3 style={styles.subheading}>Original Article</h3>
+    <div>{formatContent(article.originalContent)}</div>
+
+    <hr style={styles.divider} />
+
+    {/* <h3 style={styles.subheading}>Updated Article</h3> */}
+    <div>{formatContent(article.content)}</div>
+  </>
+)}
+
     </div>
   );
 }
@@ -109,6 +117,14 @@ const styles = {
     fontStyle: "italic",
     color: "#999",
   },
+  subheading: {
+  marginTop: "20px",
+  marginBottom: "10px",
+  color: "#444",
+  fontSize: "16px",
+  fontWeight: "600",
+},
+
 };
 
 export default Card;

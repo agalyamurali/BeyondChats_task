@@ -15,33 +15,33 @@ It scrapes articles from the BeyondChats blog, enriches them using AI-like logic
 
 --Project Architecture
 
-1.BeyondChats Website
+*BeyondChats Website
         
-2.Scraper (Node.js + Cheerio)
+*Scraper (Node.js + Cheerio)
         
-3.MongoDB (Articles stored)
+*MongoDB (Articles stored)
         
-4.AI Rewrite Script (Mock AI)
+*AI Rewrite Script (Mock AI)
         
-5.MongoDB (Updated content)
+*MongoDB (Updated content)
         
-6.Express API
+*Express API
         
-7.React Frontend
+*React Frontend
 
 --Technologies Used
 
 Backend:
-     *Node.js
-     *Express
-     *MongoDB + Mongoose
-     *Axios
-     *Cheerio (for scraping)
+     Node.js,
+     Express,
+     MongoDB + Mongoose,
+     Axios,
+     Cheerio (for scraping)
      
 Frontend:
-     *React (JS only)
-     *CSS (simple styling)
-    * Axios (API calls)
+     React (JS only),
+     CSS (simple styling),
+     Axios (API calls)
 
 --Installation & Setup
 
@@ -86,11 +86,11 @@ Frontend:
 
 --API Endpoints (Backend):
 
--GET /api/articles → fetch all articles
--GET /api/articles/:id → fetch single article
--POST /api/articles → add a new article
--PATCH /api/articles/:id → update an article
--DELETE /api/articles/:id → remove an article
+*GET /api/articles → fetch all articles
+*GET /api/articles/:id → fetch single article
+*POST /api/articles → add a new article
+*PATCH /api/articles/:id → update an article
+*DELETE /api/articles/:id → remove an article
 
 --Notes
 

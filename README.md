@@ -94,7 +94,7 @@ Frontend:
 
 --Notes
 
-*.Mock AI is used intentionally for safe and cost-free demonstration
+* Mock AI is used intentionally for safe and cost-free demonstration
 * AI logic can be replaced with OpenAI or other LLMs if API quota and billing are available.
 * Project is fully modular: scraper, AI logic, backend APIs, and frontend are independent and can be reused.
 

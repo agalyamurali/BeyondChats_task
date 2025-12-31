@@ -7,7 +7,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/articles")
+      .get("https://article-ai-update.onrender.com/api/articles")
       .then(res => setArticles(res.data))
       .catch(err => console.error(err));
   }, []);
